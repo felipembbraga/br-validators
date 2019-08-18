@@ -18,13 +18,13 @@ describe("Test br validators", function() {
         expect(validators.validCPF('018.558.973-18')).toBe(true);
 
         // valida um CPF inválido
-        expect(validators.validCPF('01855897311')).toBe(true);
+        expect(validators.validCPF('01855897311')).toBe(false);
 
         // valida um CPF inválido
         expect(validators.validCPF('0185589731')).toBe(false);
 
         // valida um CPF inválido
-        expect(validators.validCPF('0185589731812')).toBe(true);
+        expect(validators.validCPF('0185589731812')).toBe(false);
     })
     
 
@@ -43,12 +43,12 @@ describe("Test br validators", function() {
         expect(validators.validCNPJ('73.081.078/0001-51')).toBe(true);
 
         // valida um CPF inválido
-        expect(validators.validCNPJ('73.081.074/0001-51')).toBe(true);
+        expect(validators.validCNPJ('73.081.074/0001-51')).toBe(false);
 
         // valida um CPF inválido
         expect(validators.validCNPJ('73.081.078/0001-512')).toBe(false);
 
         // valida um CPF inválido
-        expect(validators.validCNPJ('7308107800015')).toBe(true);
+        expect(validators.validCNPJ('7308107800015')).toBe(false);
     })
 })
