@@ -1,6 +1,6 @@
 /**
- * Valida o cpf
- * @param {string} value cpf a ser validado
+ * Valida o CNPJ
+ * @param {string} value CNPJ a ser validado
  *
  * @returns {boolean}
  */
@@ -54,4 +54,3 @@ const validCNPJ = value => {
 };
 
 module.exports = validCNPJ;
-412;
