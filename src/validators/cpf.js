@@ -1,6 +1,6 @@
-const utils = require('./utils')
+const utils = require("./utils");
 
-const validateCpf = utils.validData('cpf')
+const validateCpf = utils.validData("cpf");
 
 /**
  * Valida o cpf
@@ -8,9 +8,9 @@ const validateCpf = utils.validData('cpf')
  *
  * @returns {boolean}
  */
-const validCPF = value => {
+const validCPF = (value) => {
   // Isola apenas os dígitos na string
-  value = utils.sanitizeValue(value)
+  value = utils.sanitizeValue(value);
 
   // verifica se o tamanho da string está correta
   if (!validateCpf(value)) {
@@ -18,7 +18,7 @@ const validCPF = value => {
   }
 
   // pega os dígitos verificadores
-  const originalValue = value.substring(0,9);
+  const originalValue = value.substring(0, 9);
   const originalDigit = value.substring(9);
 
   let digit1 = utils.getDV(utils.sumDigits(originalValue, 10));
