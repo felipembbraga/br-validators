@@ -1,12 +1,34 @@
 const VALID_DATA = {
   cpf: {
     length: 11,
-    invalid: ["00000000000"]
+    invalid: [
+      "00000000000",
+      "11111111111",
+      "22222222222",
+      "33333333333",
+      "44444444444",
+      "55555555555",
+      "66666666666",
+      "77777777777",
+      "88888888888",
+      "99999999999",
+    ],
   },
   cnpj: {
     length: 14,
-    invalid: []
-  }
+    invalid: [
+      "00000000000000",
+      "11111111111111",
+      "22222222222222",
+      "33333333333333",
+      "44444444444444",
+      "55555555555555",
+      "66666666666666",
+      "77777777777777",
+      "88888888888888",
+      "99999999999999",
+    ],
+  },
 };
 
 /**
@@ -14,16 +36,16 @@ const VALID_DATA = {
  *
  * @param {String} value Valor a ser limpo
  */
-const sanitizeValue = value => value.replace(/\D/g, "");
+const sanitizeValue = (value) => value.replace(/\D/g, "");
 
 /**
  * Valida a string do documento
  * @param {String} validType tipo de validação. OPÇÕES: cpf | cnpj
  * @param {String} value string a ser validada
  */
-const validData = validType => value =>
+const validData = (validType) => (value) =>
   value.length == VALID_DATA[validType].length &&
-  !VALID_DATA[validType].invalid.find(v => v == value);
+  !VALID_DATA[validType].invalid.find((v) => v == value);
 
 /**
  * Soma os dígitos do documento multiplicado pelo fator da posição
@@ -45,12 +67,12 @@ const sumDigits = (value, initialFactor, initialPosition = 0) => {
  * retorna o dígito verificador
  * @param {Number} value Valor da soma dos dígitos
  */
-const getDV = value =>
+const getDV = (value) =>
   (11 - (value % 11) > 9 ? 0 : 11 - (value % 11)).toString();
 
 module.exports = {
   sanitizeValue,
   validData,
   sumDigits,
-  getDV
+  getDV,
 };
